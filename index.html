@@ -9,10 +9,30 @@
   <!-- <link rel="stylesheet" href="css/style.css"> -->
 
   <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 
 <body>
+    <script type="text/javascript">
+      function getAllFactorsFor() {
+        let integer = parseInt(document.getElementById("integer").value);
+        let factors = [];
+    
+        for (let i = 2; i <= integer; i++) {
+            while ((integer % i) === 0) {
+                factors.push(i);
+                integer /= i;
+            }
+        }
+    
+        return document.getElementById("output").innerHTML = factors;
+    }
+      </script>
   <header>
     <nav class="main-navigation">
       <a class="main-header-logo">
@@ -28,13 +48,12 @@
     <h1>N-decomposer</h1>
     <section class="decomposer">
       <form class="decomposer-form" action="">
-        <label for="ndecomposer">Укажите число N</label>
-        <input id="ndecomposer" type="text">
-        <button>Разложить</button><br>
-        <span>p =</span>
-        <span id="p-output">""</span><br>
-        <span>q =</span>
-        <span id="q-output">""</span>
+        <label for="integer">Укажите число N</label>
+        <input id="integer" type="text">
+        <button onclick="getAllFactorsFor()">=</button>
+       
+        <div style="width: 100px; height: 100px;" id="output"></div>
+       
       </form>
     </section>
   </main>
@@ -68,7 +87,7 @@
       <a href="https://github.com/melivaro">Developed by Maxim Kupriyanchuk</a>
     </div>
   </footer>
-
+  
 </body>
 
 </html>
